@@ -1,5 +1,7 @@
 import {combineReducers} from 'redux'
+import {Favorites, Posts} from 'app/state'
 
 export default combineReducers({
-  data: {},
+  favorites: Favorites.reducer,
+  posts: Posts.reducer,
 })
