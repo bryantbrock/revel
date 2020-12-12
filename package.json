@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@craco/craco": "^5.9.0",
+    "@headlessui/react": "^0.2.0",
     "@reduxjs/toolkit": "^1.4.0",
     "@tailwindcss/typography": "^0.3.1",
     "@testing-library/jest-dom": "^5.11.4",

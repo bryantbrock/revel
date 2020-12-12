@@ -1,7 +1,0 @@
-.nav-link {
-  @apply p-2;
-}
-
-.nav-link:hover {
-  @apply border-b-2;
-}

@@ -33,4 +33,11 @@ export const getFavoritesData = () => async dispatch => {
     .catch(() => dispatch(Favorites.actions.error()))
 }
 
+// Constants
+export const staticFavorites = [
+  {name: 'Books'},
+  {name: 'Movies'},
+  {name: 'Food'},
+]
+
 export default Favorites

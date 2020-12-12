@@ -1,2 +1,2 @@
-export {default as Home} from 'app/pages/Home'
-export {default as Blog} from 'app/pages/Blog'
+export {default as Home} from 'app/pages/home/Home'
+export {default as Blog} from 'app/pages/blog/Blog'

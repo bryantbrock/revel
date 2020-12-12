@@ -9,7 +9,7 @@ module.exports = {
       white: '#ffffff',
       gray: {
         100: '#EAEAEA',
-        200: 'EBEBEB',
+        200: '#EBEBEB',
       },
       borderRadius: {
         'none': '0',
