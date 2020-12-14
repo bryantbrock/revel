@@ -2,11 +2,22 @@ import React from 'react'
 import {Container, Navbar, Sidebar} from 'components'
 import ProfileImage from 'images/profile-image.JPG'
 
+const navLinks = [
+  'Home',
+  'Blog',
+  'What I Do',
+  'About',
+  'Contact',
+]
+
 export default class Home extends React.Component {
   render() {
     return <div className="w-full">
       <Container>
-        <Navbar />
+        <Navbar
+          links={navLinks}
+          title="Bryant Brock"
+          subtitle="Moscow, Idaho" />
       </Container>
       <Container>
         <Sidebar />

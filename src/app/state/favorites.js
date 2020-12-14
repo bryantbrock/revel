@@ -34,10 +34,6 @@ export const getFavoritesData = () => async dispatch => {
 }
 
 // Constants
-export const staticFavorites = [
-  {name: 'Books'},
-  {name: 'Movies'},
-  {name: 'Food'},
-]
+export const staticFavorites = ['books', 'movies', 'food']
 
 export default Favorites
