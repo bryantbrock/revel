@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-export const baseUrl = 'https://website-71pi8z619.vercel.app/api/'
+export const baseUrl = 'https://website-silk-rho.vercel.app/api/'
 
 // Custom request creator
 const createRequest = (method, url) => (data, config = {}, endpoint = null, token = null) => {
