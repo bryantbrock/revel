@@ -1,7 +1,7 @@
 import React from 'react'
 import {humanToSlug} from 'utils'
 
-export default ({links, title, subtitle}) => {
+const Navbar = ({links, title, subtitle}) => {
   return <div className="flex mx-auto py-5 w-full justify-between">
     <div id="nav-name">
       <h1>{title}</h1>
@@ -15,3 +15,5 @@ export default ({links, title, subtitle}) => {
     </div>
   </div>
 }
+
+export default Navbar
