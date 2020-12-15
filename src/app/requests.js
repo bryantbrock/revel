@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-export const baseUrl = process.env.REACT_APP_API_URL
+export const baseUrl = 'https://website-71pi8z619.vercel.app/api/'
 
 // Custom request creator
 const createRequest = (method, url) => (data, config = {}, endpoint = null, token = null) => {
