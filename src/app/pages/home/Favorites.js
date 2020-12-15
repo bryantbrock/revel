@@ -19,13 +19,13 @@ class Favorites extends Component {
     const {active, favorites} = this.props
 
     return favorites[active].length > 0 ?
-    favorites[active].map(({rank, title, author}) =>
+    favorites[active].map(({rank, title, ...type}) =>
       <div className="rounded p-2">
         <div className="flex items-center">
           <div className="h-12 w-12 bg-gray-100 rounded-full">{rank}</div>
           <div className="flex flex-col">
             <h2 className="bg-gray-100 rounded-full">{title}</h2>
-            <p className="bg-gray-100 rounded-full">{author}</p>
+            {type.author && <p className="bg-gray-100 rounded-full">{type.author}</p>}
           </div>
         </div>
       </div>) :

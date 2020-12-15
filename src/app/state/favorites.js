@@ -13,13 +13,13 @@ export const Favorites = createSlice({
   name: 'favorites',
   initialState,
   reducers: {
-    isLoading: state => ({...state, isLoading: true}),
-    error: state => ({...state, error: true}),
+    isLoading: state => ({isLoading: true, ...state}),
+    error: state => ({error: true, ...state}),
     loadFavorites: (state, action) => ({
-      ...state,
       ...action.payload,
       isLoading: false,
       error: false,
+      ...state,
     })
   }
 })
