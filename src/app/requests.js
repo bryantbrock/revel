@@ -1,12 +1,12 @@
 import axios from 'axios'
 
-export const baseUrl = process.env.BACKEND_URL
+export const baseUrl = process.env.REACT_APP_VERCEL_URL
 
 // Custom request creator
 const createRequest = (method, url) => (data, config = {}, endpoint = null, token = null) => {
   const fullPath = endpoint ?
-    `${baseUrl}/${url}/${endpoint}/` :
-    `${baseUrl}/${url}/`
+    `${baseUrl}/api/${url}/${endpoint}/` :
+    `${baseUrl}/api/${url}/`
 
   config = token ? {...config, headers: {...config.headers, authorization: `Token ${token}`}} : config
 
