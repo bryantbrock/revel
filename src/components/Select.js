@@ -9,7 +9,7 @@ export default class Select extends React.Component {
     const {options} = this.props
 
     return <select className="font-bold rounded cursor-pointer p-1" onChange={this.onChange}>
-      {options.map(opt => <option>{toHuman(opt)}</option>)}
+      {options.map(opt => <option key={opt}>{toHuman(opt)}</option>)}
     </select>
   }
 }

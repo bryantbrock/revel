@@ -2,11 +2,12 @@ import React from 'react'
 import {Select} from 'components'
 import {staticFavorites} from 'app/state/favorites'
 import Favorites from 'app/pages/home/Favorites'
+import {toLowerCase} from 'utils'
 
 export default class Sidbar extends React.Component {
   state = {activeOption: 'books'}
   setSelected = value => {
-    this.setState({activeOption: value})
+    this.setState({activeOption: toLowerCase(value)})
   }
   render() {
     const {activeOption} = this.state

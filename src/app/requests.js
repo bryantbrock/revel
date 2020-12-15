@@ -1,12 +1,12 @@
 import axios from 'axios'
 
-export const baseUrl = 'https://website-silk-rho.vercel.app/api/'
+export const baseUrl = 'https://us-central1-website-api-89a0d.cloudfunctions.net/api'
 
 // Custom request creator
 const createRequest = (method, url) => (data, config = {}, endpoint = null, token = null) => {
   const fullPath = endpoint ?
-    `${baseUrl}/api/${url}/${endpoint}/` :
-    `${baseUrl}/api/${url}/`
+    `${baseUrl}/${url}/${endpoint}/` :
+    `${baseUrl}/${url}/`
 
   config = token ? {...config, headers: {...config.headers, authorization: `Token ${token}`}} : config
 

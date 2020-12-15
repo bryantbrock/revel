@@ -9,8 +9,8 @@ const Navbar = ({links, title, subtitle}) => {
     </div>
     <div id="nav-links" className="flex items-center flex-grow max-w-sm">
       <ul className="flex justify-between text-sm w-full">
-        {links.map(name =>
-          <li><a href={humanToSlug(name)} className="nav-link">{name}</a></li>)}
+        {links.map((name, idx) =>
+          <li key={idx}><a href={humanToSlug(name)} className="nav-link">{name}</a></li>)}
       </ul>
     </div>
   </div>
