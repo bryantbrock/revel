@@ -7,15 +7,15 @@ const initialState = {
   error: false,
 }
 
-export const Posts = createSlice({
-  name: 'posts',
+export const Blog = createSlice({
+  name: 'blog',
   initialState,
   reducers: {
     isLoading: state => ({...state, isLoading: true}),
     error: state => ({...state, error: true}),
     loadPosts: (state, action) => ({
       ...state,
-      ...action.payload,
+      posts: action.payload,
       isLoading: false,
       error: false,
     })
@@ -24,11 +24,11 @@ export const Posts = createSlice({
 
 // Actions
 export const getPostsData = () => async dispatch => {
-  dispatch(Posts.actions.isLoading())
+  dispatch(Blog.actions.isLoading())
 
   await getPosts()
-    .then(res => dispatch(Posts.actions.loadPosts(res.data)))
-    .catch(() => dispatch(Posts.actions.error()))
+    .then(res => dispatch(Blog.actions.loadPosts(res.data)))
+    .catch(() => dispatch(Blog.actions.error()))
 }
 
-export default Posts
+export default Blog
