@@ -1,9 +1,12 @@
 import React from 'react'
-import {Container, Spinner} from 'components'
+import {Container, Spinner, Feed} from 'components'
+import {toHumanDate} from 'utils'
 import Navbar from 'app/pages/home/Navbar'
 import Sidebar from 'app/pages/home/Sidebar'
 import {connect} from 'react-redux'
 import {getPostsData} from 'app/state/blog'
+
+const snippet = longStr => longStr.substring(0, 200)
 
 const enhance = connect(
   state => ({
@@ -26,22 +29,24 @@ class Blog extends React.Component {
       </Container>
       <Container>
         <Sidebar />
-        <div className="flex-grow my-8 h-96">
-          <div className="">
-          {posts.length > 0 ? posts.map(({author, title, body, created, imageUrl}, idx) =>
-            <div key={idx} className="border border-gray-200 rounded-md my-2 p-1 max-w-sm w-full mx-auto flex flex-col">
-              <div className="flex items-center">
-                <img className="h-12 w-12" src={imageUrl}/>
-                <div className="flex-1 space-y-1 p-3">
-                  <div className="h-5">{title}</div>
-                  <div className="h-2">{created}</div>
-                  <div className="h-5 w-3/4">{body}</div>
-                  <div className="h-5 w-3/4">{author}</div>
-                </div>
-              </div>
-            </div>) : <Spinner />}
+        <Feed>
+          <div className="w-full items-start mb-5">
+            <h1>Posts</h1>
           </div>
-        </div>
+          {posts.length > 0 ? posts.map(({author, title, body, created, imageUrl}, idx) =>
+          <a key={idx} className="post border border-gray-200 rounded w-full mb-5">
+            <div className="flex items-center">
+              <img className="h-full" src={imageUrl}/>
+              <div className="flex-1 space-y-1 p-3">
+                <h2 className="h-6 font-bold">{title}</h2>
+                <div className="text-sm opacity-50">
+                  {toHumanDate(created)} by <span>{author}</span>
+                </div>
+                <div className="">{snippet(body)}</div>
+              </div>
+            </div>
+          </a>) : <Spinner size="lg" />}
+        </Feed>
       </Container>
     </div>
   }

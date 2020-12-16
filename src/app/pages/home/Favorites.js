@@ -21,15 +21,15 @@ class Favorites extends Component {
 
     return favorites[active].length > 0 ?
     favorites[active].map(({rank, title, ...type}, idx) =>
-      <div className="rounded p-2" key={idx}>
-        <div className="flex items-center">
-          <div>{rank}</div>
-          <div className="flex flex-col">
+      <div className="rounded py-2" key={idx}>
+        <div className="flex rounded border border-gray-100 p-2 px-4">
+          <div>{rank}.</div>
+          <div className="flex flex-col pl-2">
             <strong>{title}</strong>
-            {type.author && <p>{type.author}</p>}
+            {type.author && <p className="text-sm">{type.author}</p>}
           </div>
         </div>
-      </div>) : <Spinner />
+      </div>) : <Spinner size="sm" />
   }
 }
 

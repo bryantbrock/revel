@@ -13,7 +13,7 @@ export default class Sidbar extends React.Component {
     const {activeOption} = this.state
 
     return <div id="side-nav" className="flex-none w-72 my-8">
-      <p className="p-5 bg-gray-100 rounded">
+      <p className="p-5 bg-gray-100 rounded text-sm">
         I grew up in the humid back woods of Fairhope AL.
         Moved to Moscow ID for college and married my spunky, gorgeous wife, Mariah.
         Currently a Senior and planning to continue my career at ConsignCloud as a software

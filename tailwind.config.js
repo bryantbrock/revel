@@ -20,7 +20,7 @@ module.exports = {
       },
       fontFamily: {
         sans: [
-          'Open Sans',
+          'Roboto',
           ...defaultTheme.fontFamily.sans,
         ]
       },
