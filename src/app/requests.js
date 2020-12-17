@@ -3,7 +3,7 @@ import axios from 'axios'
 export const baseUrl = 'https://us-central1-website-api-89a0d.cloudfunctions.net/api'
 
 // Custom request creator
-const createRequest = (method, url) => (data, config = {}, endpoint = null, token = null) => {
+const createRequest = (method, url) => (endpoint = null, data, config = {}, token = null) => {
   const fullPath = endpoint ?
     `${baseUrl}/${url}/${endpoint}/` :
     `${baseUrl}/${url}/`

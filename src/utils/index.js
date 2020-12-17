@@ -14,6 +14,8 @@ export const humanToSlug = str =>
     .join('-')
 
 
+export const isEmpty = obj => !Object.keys(obj).length;
+
 // Date Time
 export const toHumanDate = dateString =>
   new Date(dateString).toLocaleDateString(undefined, {

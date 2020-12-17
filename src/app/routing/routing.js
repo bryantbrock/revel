@@ -9,7 +9,7 @@ export class Routing extends React.Component {
       <Switch>
       {routes.map((route, idx) =>
         <Route
-          exact
+          exact={!route.notExact}
           key={idx}
           path={route.path}
           component={withRouter(route.component)}
