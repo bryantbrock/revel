@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import {loadPost} from 'app/state/blog'
 import {isEmpty, toHumanDate} from 'utils'
-import {Container} from 'components'
-import Navbar from 'app/pages/home/Navbar'
 
 const enhance = connect(
   state => ({

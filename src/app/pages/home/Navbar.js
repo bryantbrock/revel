@@ -9,11 +9,11 @@ const navLinks = [
   'Contact',
 ]
 
-const basePath = 'https://bryantbrock.com'
+const basePath = 'https://bryantbrock.com/'
 const devBasePath = 'http://localhost:3000/'
 
-// const path = basePath
-const path = devBasePath
+const path = basePath
+// const path = devBasePath
 
 const Navbar = ({title, subtitle}) => {
   return <div className="flex mx-auto py-5 w-full justify-between">

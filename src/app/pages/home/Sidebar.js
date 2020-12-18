@@ -5,7 +5,7 @@ import Favorites from 'app/pages/home/Favorites'
 import {toLowerCase} from 'utils'
 
 export default class Sidbar extends React.Component {
-  state = {activeOption: 'books'}
+  state = {activeOption: 'food'}
   setSelected = value => {
     this.setState({activeOption: toLowerCase(value)})
   }

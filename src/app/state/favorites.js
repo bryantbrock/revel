@@ -1,10 +1,36 @@
 import {createSlice} from '@reduxjs/toolkit'
-import {getFavorites} from 'app/requests'
+
+const fav = {
+  books: [
+    {rank: 1, title: 'Failure of Nerve', author: 'Edwin Friedman'},
+    {rank: 2, title: 'Antifragile', author: 'Nassim Taleb'},
+    {rank: 3, title: 'Hamlet', author: 'Shakespeare'},
+  ],
+  movies: [
+    {rank: 1, title: 'Ratatouille'},
+    {rank: 2, title: 'Moneyball'},
+    {rank: 3, title: 'Shaw Shank Redemption'},
+  ],
+  food: [
+    {rank: 1, title: 'Chickfila Sandwich', author: 'I know this is cheating, but they are sooo good.'},
+    {rank: 2, title: 'Coconut Soup', author: 'Cilantro, Broth, Mushrooms, red chili paste, coconut milk (obviously), chicken'},
+    {rank: 3, title: 'Cinnamon Rolls', author: 'Preferrably pecan rolls please. With a cup of coffe on this'},
+  ],
+  quotes: [
+    {rank: 1, author: '“Tolstoy opens Anna Karenina by observing: \
+      “All happy families are alike; each unhappy family is unhappy in its own way. \
+      ” Business is the opposite. All happy companies are different: each one earns a \
+      monopoly by solving a unique problem. All failed companies are the same: they \
+      failed to escape competition.”  -- Peter Thiel'},
+    {rank: 2, author: '“We learn who we are in practice, not in theory.”  -- David Epstein'},
+  ],
+}
 
 const initialState = {
   books: [],
   movies: [],
   food: [],
+  quotes: [],
   isLoading: false,
   error: false,
 }
@@ -20,6 +46,7 @@ export const Favorites = createSlice({
       books: action.payload.books,
       movies: action.payload.movies,
       food: action.payload.food,
+      quotes: action.payload.quotes,
       isLoading: false,
       error: false,
     })
@@ -28,28 +55,11 @@ export const Favorites = createSlice({
 
 // Actions
 export const getFavoritesData = () => async dispatch => {
-  const fav = {
-    books: [
-      {rank: 1, title: 'Failure of Nerve', author: 'Edwin Friedman'},
-      {rank: 2, title: 'Antifragile', author: 'Nassim Taleb'},
-      {rank: 3, title: 'Hamlet', author: 'Shakespeare'},
-    ],
-    movies: [
-      {rank: 1, title: 'Ratatouille'},
-      {rank: 2, title: 'Moneyball'},
-      {rank: 3, title: 'Shaw Shank Redemption'},
-    ],
-    food: [
-      {rank: 1, title: 'Donuts'},
-      {rank: 2, title: 'Cheese'},
-      {rank: 3, title: 'Carrots'},
-    ]
-  }
   dispatch(Favorites.actions.isLoading())
   dispatch(Favorites.actions.loadFavorites(fav))
 }
 
 // Constants
-export const staticFavorites = ['books', 'movies', 'food']
+export const staticFavorites = Object.keys(fav)
 
 export default Favorites

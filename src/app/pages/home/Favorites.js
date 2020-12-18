@@ -19,13 +19,15 @@ class Favorites extends Component {
   render() {
     const {active, favorites} = this.props
 
+    console.log(favorites)
+
     return favorites[active].length > 0 ?
     favorites[active].map(({rank, title, ...type}, idx) =>
       <div className="rounded py-2" key={idx}>
         <div className="flex rounded border border-gray-100 p-2 px-4">
           <div>{rank}.</div>
           <div className="flex flex-col pl-2">
-            <strong>{title}</strong>
+            {title && <strong>{title}</strong>}
             {type.author && <p className="text-sm">{type.author}</p>}
           </div>
         </div>

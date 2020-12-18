@@ -8,7 +8,7 @@ import {loadPosts} from 'app/state/blog'
 import Navbar from 'app/pages/home/Navbar'
 import Post from 'app/pages/blog/Post'
 
-const snippet = longStr => longStr.substring(0, 200)
+const snippet = longStr => longStr.substring(0, 250)
 
 const enhance = connect(
   state => ({
@@ -39,7 +39,7 @@ class Blog extends React.Component {
             <div className="text-sm opacity-50">
               {toHumanDate(created)} by <span>{author}</span>
             </div>
-            <div>{snippet(body)}</div>
+            <div>{snippet(body)}...</div>
           </div>
         </div>
       </a>) : <Spinner size="lg" />}
@@ -47,8 +47,6 @@ class Blog extends React.Component {
   }
   render() {
     const {posts, match} = this.props
-
-    console.log(this.props)
 
     return <div className="w-full">
       <Container>
