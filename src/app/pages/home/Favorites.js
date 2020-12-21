@@ -19,8 +19,6 @@ class Favorites extends Component {
   render() {
     const {active, favorites} = this.props
 
-    console.log(favorites)
-
     return favorites[active].length > 0 ?
     favorites[active].map(({rank, title, ...type}, idx) =>
       <div className="rounded py-2" key={idx}>

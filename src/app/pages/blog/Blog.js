@@ -1,14 +1,12 @@
 import React from 'react'
 import {Container, Spinner, Feed} from 'components'
 import {Switch, Route} from 'react-router-dom'
-import {toHumanDate} from 'utils'
 import Sidebar from 'app/pages/home/Sidebar'
 import {connect} from 'react-redux'
 import {loadPosts} from 'app/state/blog'
 import Navbar from 'app/pages/home/Navbar'
 import Post from 'app/pages/blog/Post'
-
-const snippet = longStr => longStr.substring(0, 250)
+import PostListItem from 'app/pages/blog/PostListItem'
 
 const enhance = connect(
   state => ({
@@ -18,31 +16,16 @@ const enhance = connect(
 
 class Blog extends React.Component {
   componentDidMount() {
-    this.props.loadPosts()
+    // this.props.loadPosts()
   }
   renderBlogList(posts) {
     return <Feed>
       <div className="w-full items-start mb-5">
         <h1>Posts</h1>
       </div>
-      {posts.length > 0 ? posts.map(({
-          id, author, title, body, created, imageUrl
-        }, idx) =>
-      <a
-        href={`/blog/${id}`}
-        key={idx}
-        className="post border border-gray-200 rounded w-full mb-5">
-        <div className="flex items-center">
-          <img className="h-full" src={imageUrl}/>
-          <div className="flex-1 space-y-1 p-3">
-            <h2 className="h-6 font-bold">{title}</h2>
-            <div className="text-sm opacity-50">
-              {toHumanDate(created)} by <span>{author}</span>
-            </div>
-            <div>{snippet(body)}...</div>
-          </div>
-        </div>
-      </a>) : <Spinner size="lg" />}
+      {posts.length > 0 ? posts.map((post, idx) =>
+        <PostListItem key={idx} post={post} />) :
+        <Spinner size="lg" />}
     </Feed>
   }
   render() {

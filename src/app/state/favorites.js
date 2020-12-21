@@ -1,6 +1,12 @@
 import {createSlice} from '@reduxjs/toolkit'
+import {persist} from 'utils'
 
 const fav = {
+  food: [
+    {rank: 1, title: 'Chickfila Sandwich', author: 'I know this is cheating, but they are sooo good.'},
+    {rank: 2, title: 'Coconut Soup', author: 'Cilantro, Broth, Mushrooms, red chili paste, coconut milk (obviously), chicken'},
+    {rank: 3, title: 'Cinnamon Rolls', author: 'Preferrably pecan rolls please. With a cup of coffee in addition.'},
+  ],
   books: [
     {rank: 1, title: 'Failure of Nerve', author: 'Edwin Friedman'},
     {rank: 2, title: 'Antifragile', author: 'Nassim Taleb'},
@@ -10,11 +16,6 @@ const fav = {
     {rank: 1, title: 'Ratatouille'},
     {rank: 2, title: 'Moneyball'},
     {rank: 3, title: 'Shaw Shank Redemption'},
-  ],
-  food: [
-    {rank: 1, title: 'Chickfila Sandwich', author: 'I know this is cheating, but they are sooo good.'},
-    {rank: 2, title: 'Coconut Soup', author: 'Cilantro, Broth, Mushrooms, red chili paste, coconut milk (obviously), chicken'},
-    {rank: 3, title: 'Cinnamon Rolls', author: 'Preferrably pecan rolls please. With a cup of coffe on this'},
   ],
   quotes: [
     {rank: 1, author: '“Tolstoy opens Anna Karenina by observing: \
@@ -57,6 +58,7 @@ export const Favorites = createSlice({
 export const getFavoritesData = () => async dispatch => {
   dispatch(Favorites.actions.isLoading())
   dispatch(Favorites.actions.loadFavorites(fav))
+  persist({favorites: fav})
 }
 
 // Constants

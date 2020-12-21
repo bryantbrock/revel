@@ -28,8 +28,8 @@ export class Post extends Component {
   }
   renderPost({author, title, body, created}) {
     return <div className="flex flex-col">
-      <h1 className="mb-1">{title}</h1>
-      <p className="mb-3 opacity-75 text-sm">
+      <h1 className="mb-3">{title}</h1>
+      <p className="mb-10 opacity-75 text-sm">
         Last updated on {toHumanDate(created)} by {author}.
       </p>
       <p>{body}</p>

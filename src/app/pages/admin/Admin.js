@@ -1,5 +1,4 @@
-import React, { Component } from 'react'
-import ProfileImage from 'images/profile-image.JPG'
+import React, {Component} from 'react'
 
 export class Admin extends Component {
   state = {password: ''}
@@ -8,8 +7,6 @@ export class Admin extends Component {
   }
   onSubmit = e => {
     e.preventDefault()
-
-    console.log(this.state.password)
   }
   render() {
     return <div className="flex w-full h-screen items-center justify-center">

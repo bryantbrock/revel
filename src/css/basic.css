@@ -32,3 +32,15 @@ a.post:hover {
   background-color: #f5f5f58c;
   cursor: pointer;
 }
+
+@media only screen and (max-width: 1000px) {
+  #feed {
+    flex-direction: column-reverse;
+  }
+
+  #feed * {
+    width: 99%;
+    margin: auto;
+    max-width: 500px;
+  }
+}

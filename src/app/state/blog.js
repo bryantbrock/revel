@@ -1,5 +1,6 @@
 import {createSlice} from '@reduxjs/toolkit'
 import {getPosts} from 'app/requests'
+import {persist} from 'utils'
 
 const initialState = {
   post: {},
@@ -34,7 +35,10 @@ export const loadPosts = () => async dispatch => {
   dispatch(Blog.actions.isLoading())
 
   await getPosts()
-    .then(res => dispatch(Blog.actions.loadPosts(res.data)))
+    .then(res => {
+      dispatch(Blog.actions.loadPosts(res.data))
+      persist({posts: res.data})
+    })
     .catch(() => dispatch(Blog.actions.error()))
 }
 
@@ -42,7 +46,10 @@ export const loadPost = id => async dispatch => {
   dispatch(Blog.actions.isLoading())
 
   await getPosts(id)
-    .then(res => dispatch(Blog.actions.loadPost(res.data)))
+    .then(res => {
+      dispatch(Blog.actions.loadPost(res.data))
+      persist({post: res.data})
+    })
     .catch(() => dispatch(Blog.actions.error()))
 }
 
